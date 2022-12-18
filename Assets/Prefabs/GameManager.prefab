@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5535320540570373434
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5535320540570373432}
+  - component: {fileID: 5535320540570373433}
+  - component: {fileID: 5535320540570373439}
+  - component: {fileID: 5535320540570373438}
+  - component: {fileID: 5535320540570373437}
+  - component: {fileID: 5535320540570373436}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5535320540570373432
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5535320540570373434}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5535320540570373433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5535320540570373434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f202b7ea83a13384badfdb7b79daff7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameSpeed: 1
+  _button: {fileID: 0}
+  multiplierReversion: 0.5
+  multiplier: 5
+  currentMultiplier: 0
+--- !u!114 &5535320540570373439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5535320540570373434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79048789d1c81a195b2851f44e74b87e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energy: {fileID: 9050843221703830683, guid: fea6a830dfb2ad314a061afb8034a168, type: 3}
+  startPosition: {fileID: 0}
+  soEnergyBasic: {fileID: 11400000, guid: 9fbd186c0e709ee45951302e438ce794, type: 2}
+  soEnergyFast: {fileID: 0}
+  soEnergyFierce: {fileID: 0}
+  soEnergyDefencive: {fileID: 0}
+  moneyManagement: {fileID: 5535320540570373438}
+--- !u!114 &5535320540570373438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5535320540570373434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e980033f79bfd60a974e528cc19fe9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  money: 200
+  moneyText: {fileID: 0}
+--- !u!114 &5535320540570373437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5535320540570373434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0f61c4a4582933a39f359a231380c58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energies: []
+--- !u!114 &5535320540570373436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5535320540570373434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b783624510a39671bab94213d01dd3d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOver: 0
+  chakraUnblocked: 0
+  gameOverText: {fileID: 0}
+  _moneyManagement: {fileID: 5535320540570373438}
+  _objectCount: {fileID: 5535320540570373437}
+  _handleLives: {fileID: 0}
