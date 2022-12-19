@@ -1213,6 +1213,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 492747798271482241, guid: 24c3fbb31161bebb892166431e57e5e4,
+        type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 492747798271482241, guid: 24c3fbb31161bebb892166431e57e5e4,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 492747798271482254, guid: 24c3fbb31161bebb892166431e57e5e4,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 492747798606347318, guid: 24c3fbb31161bebb892166431e57e5e4,
+        type: 3}
+      propertyPath: m_Name
+      value: EnergyCount
+      objectReference: {fileID: 0}
     - target: {fileID: 492747798726898114, guid: 24c3fbb31161bebb892166431e57e5e4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1223,15 +1243,80 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 492747799186386826, guid: 24c3fbb31161bebb892166431e57e5e4,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 492747799186386829, guid: 24c3fbb31161bebb892166431e57e5e4,
+        type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 492747799186386829, guid: 24c3fbb31161bebb892166431e57e5e4,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 492747799661069536, guid: 24c3fbb31161bebb892166431e57e5e4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 492747799738774433, guid: 24c3fbb31161bebb892166431e57e5e4,
+        type: 3}
+      propertyPath: m_text
+      value: Energy p/sec
+      objectReference: {fileID: 0}
+    - target: {fileID: 492747799738774433, guid: 24c3fbb31161bebb892166431e57e5e4,
+        type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 492747799738774433, guid: 24c3fbb31161bebb892166431e57e5e4,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 492747799738774446, guid: 24c3fbb31161bebb892166431e57e5e4,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 492747799738774446, guid: 24c3fbb31161bebb892166431e57e5e4,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 492747799738774447, guid: 24c3fbb31161bebb892166431e57e5e4,
+        type: 3}
+      propertyPath: m_Name
+      value: Energy p/sec
+      objectReference: {fileID: 0}
     - target: {fileID: 492747799967099524, guid: 24c3fbb31161bebb892166431e57e5e4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 492747800038654948, guid: 24c3fbb31161bebb892166431e57e5e4,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 492747800038654948, guid: 24c3fbb31161bebb892166431e57e5e4,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 492747800038654951, guid: 24c3fbb31161bebb892166431e57e5e4,
+        type: 3}
+      propertyPath: m_text
+      value: Money p/sec
+      objectReference: {fileID: 0}
+    - target: {fileID: 492747800038654951, guid: 24c3fbb31161bebb892166431e57e5e4,
+        type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24c3fbb31161bebb892166431e57e5e4, type: 3}

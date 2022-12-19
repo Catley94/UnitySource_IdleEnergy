@@ -9,16 +9,23 @@ public class SpawnEnergy : MonoBehaviour
     [FormerlySerializedAs("soEnergy")] [SerializeField] private SOEnergy soEnergyBasic;
     [SerializeField] private GameObject startPosition;
     [SerializeField] private float spawnTime = 1f;
+    private float second = 1f;
 
     private void Start()
     {
         InvokeRepeating (nameof(SpawnBasic), 1f, 1f);
+        GameObject.Find("GameManager").GetComponent<CurrencyManager>().SetMainLaneEnergyPSec(second / spawnTime);
         SpawnBasic();
     }
 
-    private void Update()
+    public float GetSpawnTime()
     {
-        
+        return spawnTime;
+    }
+
+    public void SetSpawnTime(float _spawnTime)
+    {
+        spawnTime = _spawnTime;
     }
 
     public void SpawnBasic()
