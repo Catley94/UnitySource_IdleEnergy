@@ -131,22 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chakra: {fileID: 2802148392825984294, guid: fb6a38bd5c358830da2a55e8cd61bee6, type: 3}
   soEnergy: {fileID: 0}
-  allTracks: {fileID: 5085648197660886172, guid: f1abe24667fe2fcdb9bcb07b1fb76b7b,
-    type: 3}
-  selectedTrack: {fileID: 0}
-  leftTrack: {fileID: 0}
-  midTrack: {fileID: 0}
-  rightTrack: {fileID: 0}
-  track: {fileID: 0}
-  tracks:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  count: 0
-  baseSpeed: 0.01
-  startingPos: {x: 0, y: 0, z: 0}
+  baseSpeed: 0.1
 --- !u!114 &9050843221703830672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,8 +144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ead6fad21a8d27bea895586b2061be5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objectCount: {fileID: 5535320540570373437, guid: ee0b9b3f48dfe2a7fb924edf3dcfae19,
-    type: 3}
   health: 200
   material: {fileID: 2100000, guid: 463ca60b4b3609538a21fe0175892818, type: 2}
   percentage: 0.02
