@@ -123,18 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &170363196 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 492747799490147173, guid: 24c3fbb31161bebb892166431e57e5e4,
-    type: 3}
-  m_PrefabInstance: {fileID: 492747799655397977}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &170895804
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -215,6 +203,32 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 170895804}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &255922952 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5535320540570373434, guid: ee0b9b3f48dfe2a7fb924edf3dcfae19,
+    type: 3}
+  m_PrefabInstance: {fileID: 5535320539681198171}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &255922954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255922952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5a8e6f9b0377c699f32d973ab307e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  money: -1
+  moneypsec: -1
+  energypsec: -1
+  mainLaneEnergyPSec: 0
+  moneyText: {fileID: 1568891864}
+  energyText: {fileID: 1678546388}
+  tower: {fileID: 565382859}
+  towers: {fileID: 1050897998}
 --- !u!1 &298256997
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,6 +386,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6414795268627156668, guid: e177b59ba927dea33b44f34c1841557e,
     type: 3}
   m_PrefabInstance: {fileID: 354909735}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &565382859 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2868156312332688971, guid: e014661c2f01f5080b327117f433a8db,
+    type: 3}
+  m_PrefabInstance: {fileID: 2868156312163992484}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &583469835
 PrefabInstance:
@@ -579,18 +599,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &917786846 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 492747799967099527, guid: 24c3fbb31161bebb892166431e57e5e4,
-    type: 3}
-  m_PrefabInstance: {fileID: 492747799655397977}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,6 +702,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+--- !u!1 &1050897998 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2868156312897476058, guid: e014661c2f01f5080b327117f433a8db,
+    type: 3}
+  m_PrefabInstance: {fileID: 2868156312163992484}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1227989621
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1509,7 +1523,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _button
       value: 
-      objectReference: {fileID: 917786846}
+      objectReference: {fileID: 0}
     - target: {fileID: 5535320540570373434, guid: ee0b9b3f48dfe2a7fb924edf3dcfae19,
         type: 3}
       propertyPath: m_Name
@@ -1524,7 +1538,7 @@ PrefabInstance:
         type: 3}
       propertyPath: gameOverText
       value: 
-      objectReference: {fileID: 170363196}
+      objectReference: {fileID: 0}
     - target: {fileID: 5535320540570373438, guid: ee0b9b3f48dfe2a7fb924edf3dcfae19,
         type: 3}
       propertyPath: moneyText

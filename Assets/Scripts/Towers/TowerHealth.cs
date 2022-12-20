@@ -32,4 +32,9 @@ public class TowerHealth : MonoBehaviour
         Debug.Log("Tower Destroyed");
         Destroy(gameObject);
     }
+
+    public int GetHealth()
+    {
+        return health;
+    }
 }
