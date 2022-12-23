@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.Serialization;
 
 public class SpawnEnergy : MonoBehaviour
@@ -11,19 +13,23 @@ public class SpawnEnergy : MonoBehaviour
     [SerializeField] private float spawnTime = 1f;
 	[SerializeField] private double energypsec;
     private float second = 1f;
+    public event Action<double> onUpdateEnergyPerSec;
 
     private void Start()
     {
-        InvokeRepeating (nameof(SpawnBasic), 1f, 1f);
-		energypsec = second / spawnTime;
-        GameObject.Find("GameManager").GetComponent<CurrencyManager>().SetMainLaneEnergyPSec(energypsec);
+        InvokeRepeating (nameof(SpawnBasic), second, spawnTime); //TODO: This will only be called once, so therefore does not get updated
+		SetSpawnTime(1);
         SpawnBasic();
     }
 
-	public double energyPerSec()
-	{
-		return energypsec;
-	}
+    
+
+    #region Utility
+
+    public double energyPerSec()
+    {
+        return energypsec;
+    }
 
     public float GetSpawnTime()
     {
@@ -33,13 +39,29 @@ public class SpawnEnergy : MonoBehaviour
     public void SetSpawnTime(float _spawnTime)
     {
         spawnTime = _spawnTime;
+        UpdateEnergyPerSec(); //TODO: Currently only updates UI
     }
 
+    public void DecreaseSpawnTime()
+    {
+        spawnTime -= 0.01f;
+    }
+
+    private void UpdateEnergyPerSec()
+    {
+        energypsec = second / spawnTime;
+        onUpdateEnergyPerSec?.Invoke(energypsec); 
+    }
+
+    #endregion
+    
+    #region SpawnEnergy
+    
     public void SpawnBasic()
     {
         SpawnFromPool(soEnergyBasic);
     }
-
+    
     private void SpawnFromPool(SOEnergy soEnergyBasic)
     {
         switch (soEnergyBasic.type)
@@ -60,5 +82,9 @@ public class SpawnEnergy : MonoBehaviour
         _energy.GetComponent<Health>().SetHealth(energyObject.health);
 
     }
+    
+    #endregion
+
+    
 
 }

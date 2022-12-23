@@ -20,9 +20,20 @@ public class CurrencyManager : MonoBehaviour
     [SerializeField] private GameObject chakra;
 
     [SerializeField] private SpawnEnergy mainLane;
+    
+    private void OnEnable()
+    {
+        SubToEvents();
+    }
     // Start is called before the first frame update
     void Start()
     {
+        // SubToEvents();
+    }
+    
+    private void SubToEvents()
+    {
+        mainLane.onUpdateEnergyPerSec += SetMainLaneEnergyPSec; //TODO: Need to unsub when destroyed or onDisable
     }
 
     // Update is called once per frame
@@ -34,11 +45,11 @@ public class CurrencyManager : MonoBehaviour
     public void SetMainLaneEnergyPSec(double _mainLaneEnergyPSec)
     {
         mainLaneEnergyPSec = _mainLaneEnergyPSec;
-        energyText.text = mainLaneEnergyPSec.ToString();
+        energyText.text = mainLaneEnergyPSec.ToString("F2");
         CalcMoneyPerSec();
     }
     
-    private double CalcMoneyPerSec()
+    private void CalcMoneyPerSec()
     {
         double energyPerMinute = mainLaneEnergyPSec * 60; //Todo: Need to swap mainLaneEnergyPSec to energypsec
         double timePerTower = energyPerMinute / tower.GetComponent<TowerHealth>().GetHealth();
@@ -51,6 +62,5 @@ public class CurrencyManager : MonoBehaviour
         double moneyPerSec = 1 / totalSecsForRound;
         moneypsec = moneyPerSec;
         moneyText.text = moneyPerSec.ToString("F2");
-        return moneyPerSec;
     }
 }
