@@ -229,6 +229,7 @@ MonoBehaviour:
   energyText: {fileID: 1678546388}
   tower: {fileID: 565382859}
   towers: {fileID: 1050897998}
+  chakra: {fileID: 2868156312163992485}
 --- !u!1 &298256997
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,25 +684,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!1 &1021166925 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 981172849548983742, guid: e014661c2f01f5080b327117f433a8db,
-    type: 3}
-  m_PrefabInstance: {fileID: 2868156312163992484}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1021166932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1021166925}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ade2e3cca2aa5a0886da45ce5d83ac6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 10
 --- !u!1 &1050897998 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2868156312897476058, guid: e014661c2f01f5080b327117f433a8db,
@@ -1242,6 +1224,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 128
       objectReference: {fileID: 0}
+    - target: {fileID: 492747798606347305, guid: 24c3fbb31161bebb892166431e57e5e4,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 127.75
+      objectReference: {fileID: 0}
     - target: {fileID: 492747798606347318, guid: 24c3fbb31161bebb892166431e57e5e4,
         type: 3}
       propertyPath: m_Name
@@ -1256,6 +1243,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 492747798995716475, guid: 24c3fbb31161bebb892166431e57e5e4,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 184.75
       objectReference: {fileID: 0}
     - target: {fileID: 492747799186386826, guid: 24c3fbb31161bebb892166431e57e5e4,
         type: 3}
@@ -1361,6 +1353,26 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 1.2
       objectReference: {fileID: 0}
+    - target: {fileID: 1077362637032317591, guid: e014661c2f01f5080b327117f433a8db,
+        type: 3}
+      propertyPath: health
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1077362637387975429, guid: e014661c2f01f5080b327117f433a8db,
+        type: 3}
+      propertyPath: health
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2351760068482293881, guid: e014661c2f01f5080b327117f433a8db,
+        type: 3}
+      propertyPath: towers
+      value: 
+      objectReference: {fileID: 1050897998}
+    - target: {fileID: 2640201085481150704, guid: e014661c2f01f5080b327117f433a8db,
+        type: 3}
+      propertyPath: health
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 2868156311274457835, guid: e014661c2f01f5080b327117f433a8db,
         type: 3}
       propertyPath: m_Name
@@ -1457,6 +1469,12 @@ PrefabInstance:
     - {fileID: 2868156312522618725, guid: e014661c2f01f5080b327117f433a8db, type: 3}
     - {fileID: 85154862739778900, guid: e014661c2f01f5080b327117f433a8db, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e014661c2f01f5080b327117f433a8db, type: 3}
+--- !u!1 &2868156312163992485 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2868156312522618655, guid: e014661c2f01f5080b327117f433a8db,
+    type: 3}
+  m_PrefabInstance: {fileID: 2868156312163992484}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5535320539681198171
 PrefabInstance:
   m_ObjectHideFlags: 0
