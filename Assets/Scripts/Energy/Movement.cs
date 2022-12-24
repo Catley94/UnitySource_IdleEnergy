@@ -2,10 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 using UnityEngine.Serialization;
 
 public class Movement : MonoBehaviour
 {
+    private IObjectPool<GameObject> energyPool; //TODO: Make this specific to Energy
     [SerializeField] private GameObject chakra;
     private int trackPointIndex = 0;
     private SOEnergy soEnergy;
@@ -44,10 +46,14 @@ public class Movement : MonoBehaviour
     private void ReturnToPool()
     {
         Debug.Log("Returned to Pool");
-        Destroy(gameObject);
-        //TODO Return to pool
+        energyPool.Release(this.gameObject);
     }
-    
+
+    public void SetEnergyPool(IObjectPool<GameObject> pool)
+    {
+        energyPool = pool;
+    }
+
 
     public void SetSOEnergy(SOEnergy _soEnergy)
     {
