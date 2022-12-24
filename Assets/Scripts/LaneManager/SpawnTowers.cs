@@ -5,10 +5,10 @@ using UnityEngine.Pool;
 
 public class SpawnTowers : MonoBehaviour
 {
+    [SerializeField] private GameObject towers;
     [SerializeField] private GameObject tower;
     
     private IObjectPool<GameObject> towerPool; //TODO: Make this specific to Energy
-    
     private void Awake()
     {
         towerPool = new ObjectPool<GameObject>(
@@ -22,7 +22,7 @@ public class SpawnTowers : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        SpawnAllTowers();
     }
 
     // Update is called once per frame
@@ -30,7 +30,17 @@ public class SpawnTowers : MonoBehaviour
     {
         
     }
-    
+
+    private void SpawnAllTowers()
+    {
+        foreach (Transform _towerPosition in towers.transform)
+        {
+            GameObject _tower = towerPool.Get();
+            _tower.transform.position = _towerPosition.position;
+        }
+        
+    }
+
     #region PoolingSystem
 
     private GameObject CreateTower()
