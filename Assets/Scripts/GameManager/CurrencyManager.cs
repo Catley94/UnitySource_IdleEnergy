@@ -7,9 +7,9 @@ using UnityEngine.Serialization;
 
 public class CurrencyManager : MonoBehaviour
 {
-    [SerializeField] private double money = -1;
-    [SerializeField] private double moneypsec = -1;
-    [SerializeField] private double energypsec = -1;
+    [SerializeField] private double money = 1;
+    [SerializeField] private double moneypsec = 1;
+    [SerializeField] private double energypsec = 1;
     [SerializeField] private double mainLaneEnergyPSec;
     [SerializeField] private TMP_Text moneyText;
     [SerializeField] private TMP_Text moneyPSecText;
@@ -26,33 +26,32 @@ public class CurrencyManager : MonoBehaviour
     private void OnEnable()
     {
         SubToEvents();
+        InvokeRepeating(nameof(UpdateMoneyCount), 0f, 1f);
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        // SubToEvents();
-    }
-    
+
     private void SubToEvents()
     {
         laneManager.onUpdateEnergyPerSec += SetMainLaneManagerEnergyPSec; //TODO: Need to unsub when destroyed or onDisable
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void SetMainLaneManagerEnergyPSec(double _mainLaneEnergyPSec)
+    private void SetMainLaneManagerEnergyPSec(double _mainLaneEnergyPSec)
     {
         mainLaneEnergyPSec = _mainLaneEnergyPSec;
         energyPSecText.text = mainLaneEnergyPSec.ToString("F2");
         CalcMoneyPerSec();
     }
+
+    #region Utilities
+
+    private void UpdateMoneyCount()
+    {
+        money += moneypsec;
+        moneyText.text = money.ToString("F2");
+    }
     
     private void CalcMoneyPerSec()
     {
+        tower = towers.transform.GetChild(0).GetChild(0).gameObject;
         double energyPerMinute = mainLaneEnergyPSec * 60; //Todo: Need to swap mainLaneEnergyPSec to energypsec
         double timePerTower = energyPerMinute / tower.GetComponent<TowerHealth>().GetHealth();
         int towerCount = towers.transform.childCount;
@@ -65,4 +64,30 @@ public class CurrencyManager : MonoBehaviour
         moneypsec = moneyPerSec;
         moneyPSecText.text = moneyPerSec.ToString("F2");
     }
+
+    #endregion
+
+    #region MoneyManagement
+
+    public double GetMoney()
+    {
+        return money;
+    }
+
+    public bool DeductMoneyByPrice(double price)
+    {
+        if (money - price < 0f)
+        {
+            return false;
+        }
+        else
+        {
+            money -= price;
+            return true;
+        }
+    }
+
+    #endregion
+
+    
 }
