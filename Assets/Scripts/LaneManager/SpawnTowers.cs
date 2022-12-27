@@ -37,6 +37,7 @@ public class SpawnTowers : MonoBehaviour
         {
             GameObject _tower = towerPool.Get();
             _tower.transform.position = _towerPosition.position;
+            _tower.transform.SetParent(_towerPosition);
         }
         
     }

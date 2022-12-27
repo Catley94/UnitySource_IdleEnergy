@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Serialization;
 
 public class CurrencyManager : MonoBehaviour
 {
@@ -11,7 +12,8 @@ public class CurrencyManager : MonoBehaviour
     [SerializeField] private double energypsec = -1;
     [SerializeField] private double mainLaneEnergyPSec;
     [SerializeField] private TMP_Text moneyText;
-    [SerializeField] private TMP_Text energyText;
+    [SerializeField] private TMP_Text moneyPSecText;
+    [SerializeField] private TMP_Text energyPSecText;
 
     [SerializeField] private GameObject tower;
 
@@ -19,7 +21,7 @@ public class CurrencyManager : MonoBehaviour
 
     [SerializeField] private GameObject chakra;
 
-    [SerializeField] private SpawnEnergy mainLane;
+    [FormerlySerializedAs("mainLane")] [SerializeField] private SpawnEnergy laneManager;
     
     private void OnEnable()
     {
@@ -33,7 +35,7 @@ public class CurrencyManager : MonoBehaviour
     
     private void SubToEvents()
     {
-        mainLane.onUpdateEnergyPerSec += SetMainLaneEnergyPSec; //TODO: Need to unsub when destroyed or onDisable
+        laneManager.onUpdateEnergyPerSec += SetMainLaneManagerEnergyPSec; //TODO: Need to unsub when destroyed or onDisable
     }
 
     // Update is called once per frame
@@ -42,10 +44,10 @@ public class CurrencyManager : MonoBehaviour
         
     }
 
-    public void SetMainLaneEnergyPSec(double _mainLaneEnergyPSec)
+    public void SetMainLaneManagerEnergyPSec(double _mainLaneEnergyPSec)
     {
         mainLaneEnergyPSec = _mainLaneEnergyPSec;
-        energyText.text = mainLaneEnergyPSec.ToString("F2");
+        energyPSecText.text = mainLaneEnergyPSec.ToString("F2");
         CalcMoneyPerSec();
     }
     
@@ -61,6 +63,6 @@ public class CurrencyManager : MonoBehaviour
         //When at chakra, 1<Energy Value&&EnergySpawnRate> / totalSecsForRound
         double moneyPerSec = 1 / totalSecsForRound;
         moneypsec = moneyPerSec;
-        moneyText.text = moneyPerSec.ToString("F2");
+        moneyPSecText.text = moneyPerSec.ToString("F2");
     }
 }
