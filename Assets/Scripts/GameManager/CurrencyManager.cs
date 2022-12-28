@@ -53,7 +53,7 @@ public class CurrencyManager : MonoBehaviour
     {
         tower = towers.transform.GetChild(0).GetChild(0).gameObject;
         double energyPerMinute = mainLaneEnergyPSec * 60; //Todo: Need to swap mainLaneEnergyPSec to energypsec
-        double timePerTower = energyPerMinute / tower.GetComponent<TowerHealth>().GetHealth();
+        double timePerTower =  tower.GetComponent<TowerHealth>().GetHealth() / energyPerMinute;
         int towerCount = towers.transform.childCount;
         double timeForTowersDestroyed = timePerTower * towerCount;
         double timeForChakraAbsorbtion = chakra.GetComponent<ChakraHealth>().GetHealth() / energyPerMinute;

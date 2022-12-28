@@ -88,7 +88,14 @@ public class SpawnEnergy : MonoBehaviour
     public void SetSpawnTime(float _spawnTime)
     {
         spawnTime = _spawnTime;
-        UpdateEnergyPerSec(); //TODO: Currently only updates UI
+        UpdateEnergyPerSec();
+    }
+
+    public void DecreaseSpawnTime()
+    {
+        spawnTime -= (spawnTime * 0.01f);
+        // spawnTime -= 0.1f;
+        UpdateEnergyPerSec();
     }
 
     private void UpdateEnergyPerSec()
