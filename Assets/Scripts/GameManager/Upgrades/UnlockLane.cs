@@ -30,7 +30,7 @@ public class UnlockLane : MonoBehaviour, IUpgrade
         price += (price * 0.1f);
         unlockLane.transform.Find("Level").GetComponent<TMP_Text>().text = level.ToString();
         unlockLane.transform.Find("Price").GetComponent<TMP_Text>().text = price.ToString();
-        bool laneUnlocked = UnlockNextLane();
+        UnlockNextLane();
     }
 
     public int GetLevel()
@@ -43,7 +43,7 @@ public class UnlockLane : MonoBehaviour, IUpgrade
         return price;
     }
 
-    private bool UnlockNextLane()
+    private void UnlockNextLane()
     {
         List<GameObject> lockedLanes = new List<GameObject>();
         for (int i = 0; i < lanes.transform.childCount; i++)
@@ -58,11 +58,6 @@ public class UnlockLane : MonoBehaviour, IUpgrade
         if (lockedLanes.Count > 0)
         {
             lockedLanes[0].SetActive(true);
-            return true;
-        }
-        else
-        {
-            return false;
         }
     }
 

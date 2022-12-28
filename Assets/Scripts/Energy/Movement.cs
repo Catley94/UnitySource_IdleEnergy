@@ -8,7 +8,7 @@ using UnityEngine.Serialization;
 public class Movement : MonoBehaviour
 {
     private IObjectPool<GameObject> energyPool; //TODO: Make this specific to Energy
-    [SerializeField] private GameObject chakra;
+    private GameObject chakra;
     private int trackPointIndex = 0;
     private SOEnergy soEnergy;
     [FormerlySerializedAs("speed")] [SerializeField] private float baseSpeed = 0.1f;
@@ -22,7 +22,12 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, chakra.transform.position, baseSpeed);
+        if (chakra)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, chakra.transform.position, baseSpeed);
+        }
+
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -58,5 +63,10 @@ public class Movement : MonoBehaviour
     public void SetSOEnergy(SOEnergy _soEnergy)
     {
         soEnergy = _soEnergy;
+    }
+
+    public void SetTarget(GameObject target)
+    {
+        chakra = target;
     }
 }

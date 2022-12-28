@@ -13,6 +13,7 @@ public class SpawnEnergy : MonoBehaviour
     [FormerlySerializedAs("soEnergy")] [SerializeField] private SOEnergy soEnergyBasic;
     [SerializeField] private GameObject startPosition;
 	[SerializeField] private double energypsec;
+    private ChakraHealth chakra;
 
     private IObjectPool<GameObject> energyPool; //TODO: Make this specific to Energy
     private float second = 1f;
@@ -28,6 +29,7 @@ public class SpawnEnergy : MonoBehaviour
                 OnDestroyEnergy,
                 maxSize: 20//TODO: Calculate how many should be on screen at any time, + 1 to be safe
             );
+        chakra = gameObject.GetComponentInParent<ChakraHealth>();
     }
     
     private void Start()
@@ -57,8 +59,8 @@ public class SpawnEnergy : MonoBehaviour
         _energy.SetActive(true);
         _energy.transform.position = startPosition.transform.position;
         _energy.transform.rotation = startPosition.transform.rotation;
-        _energy.GetComponent<Health>().SetHealth(soEnergyBasic.health);
         _energy.GetComponent<Movement>().SetEnergyPool(energyPool);
+        _energy.GetComponent<Movement>().SetTarget(chakra.gameObject);
     }
     
     private void OnReleaseEnergy(GameObject _energy)

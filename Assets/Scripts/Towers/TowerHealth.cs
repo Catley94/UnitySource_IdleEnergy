@@ -30,7 +30,7 @@ public class TowerHealth : MonoBehaviour
     private void ReturnToPool()
     {
         Debug.Log("Tower Destroyed");
-        Destroy(gameObject);
+        Destroy(gameObject); //TODO Need to return  back to pool
     }
 
     public int GetHealth()

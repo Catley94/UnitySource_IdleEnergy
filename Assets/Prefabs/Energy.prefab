@@ -14,8 +14,6 @@ GameObject:
   - component: {fileID: 9050843221703830685}
   - component: {fileID: 9050843221703830682}
   - component: {fileID: 9050843221703830673}
-  - component: {fileID: 9050843221703830672}
-  - component: {fileID: -2392649582324547395}
   m_Layer: 0
   m_Name: Energy
   m_TagString: Energy
@@ -130,33 +128,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chakra: {fileID: 2802148392825984294, guid: fb6a38bd5c358830da2a55e8cd61bee6, type: 3}
-  soEnergy: {fileID: 0}
   baseSpeed: 0.1
---- !u!114 &9050843221703830672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9050843221703830683}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ead6fad21a8d27bea895586b2061be5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 200
-  material: {fileID: 2100000, guid: 463ca60b4b3609538a21fe0175892818, type: 2}
-  percentage: 0.02
---- !u!114 &-2392649582324547395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9050843221703830683}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b0d3e7e1c74be69585da4b2ae3a6cc0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targeted: 0

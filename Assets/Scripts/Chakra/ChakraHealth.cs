@@ -21,8 +21,21 @@ public class ChakraHealth : MonoBehaviour
 
     private void SetHealth()
     {
-        int towerCount = towers.transform.childCount;
-        health = towers.GetComponentInChildren<TowerHealth>().GetHealth() * towerCount;
+        
+        if (towers)
+        {
+            int towerCount = towers.transform.childCount;
+            
+            if (towerCount > 0)
+            {
+                health = towers.GetComponentInChildren<TowerHealth>().GetHealth() * towerCount;
+            }
+            else
+            {
+                health = 0;
+            }
+        }
+
     }
 
     public int GetHealth()
