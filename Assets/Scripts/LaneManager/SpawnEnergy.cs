@@ -8,19 +8,36 @@ using UnityEngine.Pool;
 
 public class SpawnEnergy : MonoBehaviour
 {
+    //Update CurrencyManager keeping count of total energyPerSec
     public event Action<double> onUpdateEnergyPerSec;
     
-    
+    //Referencing Energy Prefab so we can Instantiate
     [SerializeField] private GameObject energy; 
+    //Energy Stats are stored within a Scriptable Object, however they may not be needed now
     [FormerlySerializedAs("soEnergy")] [SerializeField] private SOEnergy soEnergyBasic;
+    //Energy Starting position when moving towards Chakra, different for each LaneManager
     [SerializeField] private GameObject startPosition;
+    //Energy Per Second for this Lane
 	[SerializeField] private double energypsec;
+    //Reference of Chakra, different for each Lane
     [SerializeField] private ChakraHealth chakra;
-    private CurrencyManager _currencyManager;
 
+    //For referencing
+    private GameObject gameManager;
+    
+    //For upgrading Enerygy Value when purchased
+    private EnergyValue energyValue;
+    //For upgrading Energy Spawn Rate when purchased
+    private EnergySpawnRate energySpawnRate;
+
+    //Energy Pool, creation, getting, releasing, destroying
     private IObjectPool<GameObject> energyPool; //TODO: Make this specific to Energy
+    //Value of 1 second
     private float second = 1f;
+    //Current Spawn Time for this Lane
     private float spawnTime = 1f;
+    //Coroutine depends on this to be true in order to spawn in Energies per second
+    //If false, should act like pausing the game
     private bool playing = true;
 
     private void Awake()
@@ -32,9 +49,39 @@ public class SpawnEnergy : MonoBehaviour
                 OnDestroyEnergy,
                 maxSize: 20//TODO: Calculate how many should be on screen at any time, + 1 to be safe
             );
-        _currencyManager = GameObject.Find("GameManager").GetComponent<CurrencyManager>();
+        
     }
-    
+
+    private void OnEnable()
+    {
+        SetupReferences();
+        SubToEvents();
+    }
+
+    private void SubToEvents()
+    {
+        energyValue.onUpgrade += UpgradeEnergyValue;
+        energySpawnRate.onUpgrade += UpgradeEnergySpawnRate;
+    }
+
+    private void UpgradeEnergyValue()
+    {
+        
+    }
+
+    private void UpgradeEnergySpawnRate()
+    {
+        spawnTime -= (spawnTime * 0.01f);
+        UpdateEnergyPerSec();
+    }
+
+    private void SetupReferences()
+    {
+        gameManager = GameObject.Find("GameManager");
+        energyValue = gameManager.GetComponent<EnergyValue>();
+        energySpawnRate = gameManager.GetComponent<EnergySpawnRate>();
+    }
+
     private void Start()
     {
         StartCoroutine(SpawnEnergies()); //Starts the loop of spawning X amount of Energy per second
@@ -96,17 +143,9 @@ public class SpawnEnergy : MonoBehaviour
         UpdateEnergyPerSec();
     }
 
-    public void DecreaseSpawnTime()
-    {
-        spawnTime -= (spawnTime * 0.01f);
-        // spawnTime -= 0.1f;
-        UpdateEnergyPerSec();
-    }
-
     private void UpdateEnergyPerSec()
     {
         energypsec = second / spawnTime;
-        // _currencyManager.UpdateEnergyPSec(energypsec);
         onUpdateEnergyPerSec?.Invoke(energypsec); 
     }
 

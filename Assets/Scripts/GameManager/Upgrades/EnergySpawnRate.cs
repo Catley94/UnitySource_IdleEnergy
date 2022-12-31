@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using log4net.Core;
@@ -11,6 +12,8 @@ public class EnergySpawnRate : MonoBehaviour, IUpgrade
     [SerializeField] private float price = 1f;
     [SerializeField] private SpawnEnergy _spawnEnergy;
     private Purchasing purchasing;
+
+    public event Action onUpgrade;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +34,16 @@ public class EnergySpawnRate : MonoBehaviour, IUpgrade
         price += (price * 0.1f);
         upgradeSpawnRate.transform.Find("Level").GetComponent<TMP_Text>().text = level.ToString();
         upgradeSpawnRate.transform.Find("Price").GetComponent<TMP_Text>().text = price.ToString();
-        _spawnEnergy.DecreaseSpawnTime();
+        onUpgrade?.Invoke();
+        // _spawnEnergy.DecreaseSpawnTime();
+    }
+    
+    private void ResetValues()
+    {
+        level = 1;
+        price = 1;
+        upgradeSpawnRate.transform.Find("Level").GetComponent<TMP_Text>().text = level.ToString();
+        upgradeSpawnRate.transform.Find("Price").GetComponent<TMP_Text>().text = price.ToString();
     }
     
     public int GetLevel()

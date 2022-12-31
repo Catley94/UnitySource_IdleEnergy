@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -10,6 +11,9 @@ public class EnergyValue : MonoBehaviour, IUpgrade
     [SerializeField] private float price = 1f;
 
     private Purchasing purchasing;
+    
+    public event Action onUpgrade;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +34,15 @@ public class EnergyValue : MonoBehaviour, IUpgrade
         //TODO: Purposely commented out the below as need to implement this feature
         // level += 1;
         // price += (price * 0.1f);
+        upgradeEnergyValue.transform.Find("Level").GetComponent<TMP_Text>().text = level.ToString();
+        upgradeEnergyValue.transform.Find("Price").GetComponent<TMP_Text>().text = price.ToString();
+        onUpgrade?.Invoke();
+    }
+    
+    private void ResetValues()
+    {
+        level = 1;
+        price = 1;
         upgradeEnergyValue.transform.Find("Level").GetComponent<TMP_Text>().text = level.ToString();
         upgradeEnergyValue.transform.Find("Price").GetComponent<TMP_Text>().text = price.ToString();
     }

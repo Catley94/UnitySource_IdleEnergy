@@ -14,6 +14,7 @@ public class CurrencyManager : MonoBehaviour
     [SerializeField] private TMP_Text moneyText;
     [SerializeField] private TMP_Text moneyPSecText;
     [SerializeField] private TMP_Text energyPSecText;
+   
 
     [SerializeField] private GameObject tower;
 
