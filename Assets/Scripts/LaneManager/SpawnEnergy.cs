@@ -8,7 +8,7 @@ using UnityEngine.Pool;
 
 public class SpawnEnergy : MonoBehaviour
 {
-    // public event Action<double> onUpdateEnergyPerSec;
+    public event Action<double> onUpdateEnergyPerSec;
     
     
     [SerializeField] private GameObject energy; 
@@ -106,7 +106,8 @@ public class SpawnEnergy : MonoBehaviour
     private void UpdateEnergyPerSec()
     {
         energypsec = second / spawnTime;
-        _currencyManager.UpdateEnergyPSec(energypsec);
+        // _currencyManager.UpdateEnergyPSec(energypsec);
+        onUpdateEnergyPerSec?.Invoke(energypsec); 
     }
 
     #endregion

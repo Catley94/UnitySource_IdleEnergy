@@ -21,8 +21,15 @@ public class CurrencyManager : MonoBehaviour
 
     [SerializeField] private GameObject chakra;
 
-    [FormerlySerializedAs("mainLane")] [SerializeField] private SpawnEnergy laneManager;
-    
+    [SerializeField] private SpawnEnergy laneManager0;
+    [SerializeField] private SpawnEnergy laneManager1;
+    [SerializeField] private SpawnEnergy laneManager2;
+    [SerializeField] private SpawnEnergy laneManager3;
+    [SerializeField] private SpawnEnergy laneManager4;
+    [SerializeField] private SpawnEnergy laneManager5;
+    [SerializeField] private SpawnEnergy laneManager6;
+
+
     private void OnEnable()
     {
         SubToEvents();
@@ -31,6 +38,13 @@ public class CurrencyManager : MonoBehaviour
 
     private void SubToEvents()
     {
+        laneManager0.onUpdateEnergyPerSec += UpdateEnergyPSec; //TODO: Need to unsub when destroyed or onDisable
+        laneManager1.onUpdateEnergyPerSec += UpdateEnergyPSec; //TODO: Need to unsub when destroyed or onDisable
+        laneManager2.onUpdateEnergyPerSec += UpdateEnergyPSec; //TODO: Need to unsub when destroyed or onDisable
+        laneManager3.onUpdateEnergyPerSec += UpdateEnergyPSec; //TODO: Need to unsub when destroyed or onDisable
+        laneManager4.onUpdateEnergyPerSec += UpdateEnergyPSec; //TODO: Need to unsub when destroyed or onDisable
+        laneManager5.onUpdateEnergyPerSec += UpdateEnergyPSec; //TODO: Need to unsub when destroyed or onDisable
+        laneManager6.onUpdateEnergyPerSec += UpdateEnergyPSec; //TODO: Need to unsub when destroyed or onDisable
     }
 
     public void UpdateEnergyPSec(double _energyPerSec)

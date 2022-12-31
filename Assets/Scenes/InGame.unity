@@ -123,6 +123,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &152617256 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5750190117110454082, guid: e177b59ba927dea33b44f34c1841557e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1227989621}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79048789d1c81a195b2851f44e74b87e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &170895804
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -224,14 +236,20 @@ MonoBehaviour:
   money: 1
   moneypsec: 1
   energypsec: 1
-  mainLaneEnergyPSec: 0
+  totalEnergyPerSec: 0
   moneyText: {fileID: 492747799655397978}
   moneyPSecText: {fileID: 1568891864}
   energyPSecText: {fileID: 1678546388}
   tower: {fileID: 0}
   towers: {fileID: 1050897998}
   chakra: {fileID: 2868156312163992485}
-  laneManager: {fileID: 1926395754}
+  laneManager0: {fileID: 1926395754}
+  laneManager1: {fileID: 1040308743}
+  laneManager2: {fileID: 641745813}
+  laneManager3: {fileID: 2046976045}
+  laneManager4: {fileID: 2044535434}
+  laneManager5: {fileID: 1418595913}
+  laneManager6: {fileID: 152617256}
 --- !u!114 &255922956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -685,6 +703,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 583469835}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &641745813 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5750190117110454082, guid: e177b59ba927dea33b44f34c1841557e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1321828486}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79048789d1c81a195b2851f44e74b87e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -895,6 +925,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &1040308743 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5750190117110454082, guid: e177b59ba927dea33b44f34c1841557e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1622214974}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79048789d1c81a195b2851f44e74b87e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1050897998 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2868156312897476058, guid: e014661c2f01f5080b327117f433a8db,
@@ -1089,6 +1131,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2868156312163992484}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1418595913 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5750190117110454082, guid: e177b59ba927dea33b44f34c1841557e,
+    type: 3}
+  m_PrefabInstance: {fileID: 354909735}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79048789d1c81a195b2851f44e74b87e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1468219084
 GameObject:
   m_ObjectHideFlags: 0
@@ -1462,6 +1516,30 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2868156312163992487, guid: e014661c2f01f5080b327117f433a8db,
     type: 3}
   m_PrefabInstance: {fileID: 2868156312163992484}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79048789d1c81a195b2851f44e74b87e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2044535434 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5750190117110454082, guid: e177b59ba927dea33b44f34c1841557e,
+    type: 3}
+  m_PrefabInstance: {fileID: 583469835}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79048789d1c81a195b2851f44e74b87e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2046976045 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5750190117110454082, guid: e177b59ba927dea33b44f34c1841557e,
+    type: 3}
+  m_PrefabInstance: {fileID: 170895804}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
