@@ -30,6 +30,9 @@ public class CurrencyManager : MonoBehaviour
     [SerializeField] private SpawnEnergy laneManager5;
     [SerializeField] private SpawnEnergy laneManager6;
 
+    //Send money update as Event so we can check if the player can purchase upgrades
+    //Buttons will enable by themselves if money > price of each upgrade
+    public event Action<double> onMoneyUpdate;
 
     private void OnEnable()
     {
@@ -68,6 +71,7 @@ public class CurrencyManager : MonoBehaviour
     {
         money += moneypsec;
         moneyText.text = money.ToString("F2");
+        onMoneyUpdate?.Invoke(money);
     }
     
     private void CalcMoneyPerSec()
@@ -84,6 +88,7 @@ public class CurrencyManager : MonoBehaviour
         double moneyPerSec = 1 / totalSecsForRound;
         moneypsec = moneyPerSec;
         moneyPSecText.text = moneyPerSec.ToString("F2");
+        
     }
 
     #endregion

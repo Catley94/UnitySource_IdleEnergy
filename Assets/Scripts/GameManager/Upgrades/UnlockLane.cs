@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class UnlockLane : MonoBehaviour, IUpgrade
 {
@@ -14,6 +14,7 @@ public class UnlockLane : MonoBehaviour, IUpgrade
     [SerializeField] private GameObject unlockLaneButton;
     [SerializeField] private GameObject priceLabel;
     private Purchasing purchasing;
+    private CurrencyManager currencyManager;
     
     public event Action onUpgrade;
 
@@ -21,6 +22,7 @@ public class UnlockLane : MonoBehaviour, IUpgrade
     void Start()
     {
         purchasing = GetComponent<Purchasing>();
+        currencyManager = GetComponent<CurrencyManager>();
         SubToEvents();
         unlockLane.transform.Find("Level").GetComponent<TMP_Text>().text = level.ToString();
         unlockLane.transform.Find("Price").GetComponent<TMP_Text>().text = price.ToString();
@@ -29,8 +31,23 @@ public class UnlockLane : MonoBehaviour, IUpgrade
     private void SubToEvents()
     {
         purchasing.onLaneUnlock += OnPurchase;
+        currencyManager.onMoneyUpdate += OnMoneyUpdate;
     }
-    
+
+    private void OnMoneyUpdate(double money)
+    {
+        if (currencyManager.CanPurchase(price))
+        {
+            //TODO: Enable Unlock Lane button (if disabled)
+            unlockLaneButton.GetComponent<Button>().interactable = true;
+        }
+        else
+        {
+            //TODO: Disable button (if enabled)
+            unlockLaneButton.GetComponent<Button>().interactable = false;
+        }
+    }
+
     public void OnPurchase()
     {
         if (level <= 7)
