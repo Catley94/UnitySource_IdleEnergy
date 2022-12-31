@@ -339,7 +339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823a84f1fffed20dda7b09efdfbf1358, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  price: 1
+  price: 2
   unlockChakra: {fileID: 1332612386}
   chakraLock: {fileID: 1469247145}
   portal: {fileID: 290440939}

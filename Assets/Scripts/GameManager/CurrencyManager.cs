@@ -60,6 +60,8 @@ public class CurrencyManager : MonoBehaviour
         CalcMoneyPerSec();
     }
 
+    
+
     #region Utilities
 
     private void UpdateMoneyCount()
@@ -93,7 +95,7 @@ public class CurrencyManager : MonoBehaviour
         return money;
     }
 
-    public bool DeductMoneyByPrice(double price)
+    public bool CanPurchase(double price)
     {
         if (money - price < 0f)
         {
@@ -101,8 +103,15 @@ public class CurrencyManager : MonoBehaviour
         }
         else
         {
-            money -= price;
             return true;
+        }
+    }
+    
+    public void DeductMoneyByPrice(double price)
+    {
+        if (CanPurchase(price))
+        {
+            money -= price;
         }
     }
 

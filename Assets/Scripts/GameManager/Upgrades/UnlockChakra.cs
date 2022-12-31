@@ -6,7 +6,7 @@ using UnityEngine;
 public class UnlockChakra : MonoBehaviour, IUpgrade
 {
     //Price of unlocking Chakra
-    [SerializeField] private float price = 1f;
+    [SerializeField] private float price = 10f;
     
     //For Referencing
     
@@ -17,11 +17,13 @@ public class UnlockChakra : MonoBehaviour, IUpgrade
     [SerializeField] private GameObject portal;
 
     private Purchasing purchasing;
+    private CurrencyManager currencyManager;
     
     // Start is called before the first frame update
     void Start()
     {
         purchasing = GetComponent<Purchasing>();
+        currencyManager = GetComponent<CurrencyManager>();
         SubToEvents();
         unlockChakra.transform.Find("Price").GetComponent<TMP_Text>().text = price.ToString();
     }
@@ -33,14 +35,20 @@ public class UnlockChakra : MonoBehaviour, IUpgrade
 
     private void OnPurchase()
     {
-        chakraLock.SetActive(false);
-        portal.SetActive(false);
+        if (currencyManager.CanPurchase(price))
+        {
+            currencyManager.DeductMoneyByPrice(price);
+            chakraLock.SetActive(false);
+            portal.SetActive(false);
+            unlockChakra.SetActive(false);
+        }
     }
 
     private void ResetValues()
     {
         chakraLock.SetActive(true);
         portal.SetActive(true);
+        unlockChakra.SetActive(true);
     }
 
     public int GetLevel() => 0;
