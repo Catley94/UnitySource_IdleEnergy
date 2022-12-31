@@ -10,7 +10,7 @@ public class CurrencyManager : MonoBehaviour
     [SerializeField] private double money = 1;
     [SerializeField] private double moneypsec = 1;
     [SerializeField] private double energypsec = 1;
-    [SerializeField] private double mainLaneEnergyPSec;
+    [FormerlySerializedAs("mainLaneEnergyPSec")] [SerializeField] private double totalEnergyPerSec;
     [SerializeField] private TMP_Text moneyText;
     [SerializeField] private TMP_Text moneyPSecText;
     [SerializeField] private TMP_Text energyPSecText;
@@ -31,13 +31,17 @@ public class CurrencyManager : MonoBehaviour
 
     private void SubToEvents()
     {
-        laneManager.onUpdateEnergyPerSec += SetMainLaneManagerEnergyPSec; //TODO: Need to unsub when destroyed or onDisable
     }
 
-    private void SetMainLaneManagerEnergyPSec(double _mainLaneEnergyPSec)
+    public void UpdateEnergyPSec(double _energyPerSec)
     {
-        mainLaneEnergyPSec = _mainLaneEnergyPSec;
-        energyPSecText.text = mainLaneEnergyPSec.ToString("F2");
+        SetEnergyPerSec(_energyPerSec);
+    }
+
+    private void SetEnergyPerSec(double _energyPerSec)
+    {
+        totalEnergyPerSec += _energyPerSec;
+        energyPSecText.text = totalEnergyPerSec.ToString("F2");
         CalcMoneyPerSec();
     }
 
@@ -52,7 +56,7 @@ public class CurrencyManager : MonoBehaviour
     private void CalcMoneyPerSec()
     {
         tower = towers.transform.GetChild(0).GetChild(0).gameObject;
-        double energyPerMinute = mainLaneEnergyPSec * 60; //Todo: Need to swap mainLaneEnergyPSec to energypsec
+        double energyPerMinute = totalEnergyPerSec * 60; //Todo: Need to swap mainLaneEnergyPSec to energypsec
         double timePerTower =  tower.GetComponent<TowerHealth>().GetHealth() / energyPerMinute;
         int towerCount = towers.transform.childCount;
         double timeForTowersDestroyed = timePerTower * towerCount;

@@ -8,12 +8,15 @@ using UnityEngine.Pool;
 
 public class SpawnEnergy : MonoBehaviour
 {
-    public event Action<double> onUpdateEnergyPerSec;
+    // public event Action<double> onUpdateEnergyPerSec;
+    
+    
     [SerializeField] private GameObject energy; 
     [FormerlySerializedAs("soEnergy")] [SerializeField] private SOEnergy soEnergyBasic;
     [SerializeField] private GameObject startPosition;
 	[SerializeField] private double energypsec;
-    private ChakraHealth chakra;
+    [SerializeField] private ChakraHealth chakra;
+    private CurrencyManager _currencyManager;
 
     private IObjectPool<GameObject> energyPool; //TODO: Make this specific to Energy
     private float second = 1f;
@@ -29,7 +32,7 @@ public class SpawnEnergy : MonoBehaviour
                 OnDestroyEnergy,
                 maxSize: 20//TODO: Calculate how many should be on screen at any time, + 1 to be safe
             );
-        chakra = gameObject.GetComponentInParent<ChakraHealth>();
+        _currencyManager = GameObject.Find("GameManager").GetComponent<CurrencyManager>();
     }
     
     private void Start()
@@ -103,7 +106,7 @@ public class SpawnEnergy : MonoBehaviour
     private void UpdateEnergyPerSec()
     {
         energypsec = second / spawnTime;
-        onUpdateEnergyPerSec?.Invoke(energypsec); 
+        _currencyManager.UpdateEnergyPSec(energypsec);
     }
 
     #endregion

@@ -48,6 +48,7 @@ MonoBehaviour:
   soEnergyBasic: {fileID: 11400000, guid: 9fbd186c0e709ee45951302e438ce794, type: 2}
   startPosition: {fileID: 6586152345865537701}
   energypsec: 0
+  chakra: {fileID: 8685272113538473424}
 --- !u!1 &6414795268041322792
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,6 +280,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb6a38bd5c358830da2a55e8cd61bee6, type: 3}
+--- !u!114 &8685272113538473424 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2417771883177083456, guid: fb6a38bd5c358830da2a55e8cd61bee6,
+    type: 3}
+  m_PrefabInstance: {fileID: 6414795268497317776}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc9b515ec9fa1c52e8ae1687865cd04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &9216288238576110285 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2802148392825984349, guid: fb6a38bd5c358830da2a55e8cd61bee6,
