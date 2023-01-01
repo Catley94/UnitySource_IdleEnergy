@@ -35,12 +35,16 @@ public class EnergySpawnRate : MonoBehaviour, IUpgrade
 
     public void OnPurchase()
     {
+
+        currencyManager.DeductMoneyByPrice(price);
         level += 1;
         price += (price * 0.1f);
         upgradeSpawnRate.transform.Find("Level").GetComponent<TMP_Text>().text = level.ToString();
         upgradeSpawnRate.transform.Find("Price").GetComponent<TMP_Text>().text = price.ToString();
         onUpgrade?.Invoke();
         // _spawnEnergy.DecreaseSpawnTime();
+        
+        
     }
     
     private void OnMoneyUpdate(double money)

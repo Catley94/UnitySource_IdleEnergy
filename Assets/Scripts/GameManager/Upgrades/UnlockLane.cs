@@ -65,7 +65,7 @@ public class UnlockLane : MonoBehaviour, IUpgrade
             {
                 unlockLane.transform.Find("Price").GetComponent<TMP_Text>().text = price.ToString();
             }
-            
+            currencyManager.DeductMoneyByPrice(price);
             onUpgrade?.Invoke();
             //Gets all disabled lanes, then enables the [0] in List<GameObject>
             //When level > 8, Redundant call, should be within a condition to prevent this from being 

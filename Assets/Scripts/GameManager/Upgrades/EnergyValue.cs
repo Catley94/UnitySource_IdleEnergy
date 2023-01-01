@@ -39,6 +39,7 @@ public class EnergyValue : MonoBehaviour, IUpgrade
         //TODO: Purposely commented out the below as need to implement this feature
         // level += 1;
         // price += (price * 0.1f);
+        currencyManager.DeductMoneyByPrice(price);
         upgradeEnergyValue.transform.Find("Level").GetComponent<TMP_Text>().text = level.ToString();
         upgradeEnergyValue.transform.Find("Price").GetComponent<TMP_Text>().text = price.ToString();
         onUpgrade?.Invoke();

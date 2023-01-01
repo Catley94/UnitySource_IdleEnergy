@@ -76,7 +76,7 @@ public class CurrencyManager : MonoBehaviour
     
     private void CalcMoneyPerSec()
     {
-        tower = towers.transform.GetChild(0).GetChild(0).gameObject;
+        tower = towers.transform.GetChild(0).GetChild(0).gameObject; //if there are no towers?
         double energyPerMinute = totalEnergyPerSec * 60; //Todo: Need to swap mainLaneEnergyPSec to energypsec
         double timePerTower =  tower.GetComponent<TowerHealth>().GetHealth() / energyPerMinute;
         int towerCount = towers.transform.childCount;
@@ -117,6 +117,7 @@ public class CurrencyManager : MonoBehaviour
         if (CanPurchase(price))
         {
             money -= price;
+            moneyText.text = money.ToString("F2");
         }
     }
 
