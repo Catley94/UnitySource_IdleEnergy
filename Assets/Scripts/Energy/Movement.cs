@@ -9,7 +9,6 @@ public class Movement : MonoBehaviour
 {
     private IObjectPool<GameObject> energyPool; //TODO: Make this specific to Energy
     private GameObject chakra;
-    private int trackPointIndex = 0;
     private SOEnergy soEnergy;
     [FormerlySerializedAs("speed")] [SerializeField] private float baseSpeed = 0.1f;
 

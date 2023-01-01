@@ -9,7 +9,6 @@ public class CurrencyManager : MonoBehaviour
 {
     [SerializeField] private double money = 1;
     [SerializeField] private double moneypsec = 1;
-    [SerializeField] private double energypsec = 1;
     [FormerlySerializedAs("mainLaneEnergyPSec")] [SerializeField] private double totalEnergyPerSec;
     [SerializeField] private TMP_Text moneyText;
     [SerializeField] private TMP_Text moneyPSecText;
