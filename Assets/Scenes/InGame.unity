@@ -275,8 +275,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeEnergyValue: {fileID: 1160042939}
+  upgradeEnergyValueButton: {fileID: 1521039937}
   level: 1
-  price: 1
+  price: 2
 --- !u!114 &255922959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,7 +292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unlockLane: {fileID: 1861363735}
   level: 1
-  price: 1
+  price: 2
   lanes: {fileID: 1624627262}
   unlockLaneButton: {fileID: 1997624474}
   priceLabel: {fileID: 1982521350}
@@ -308,8 +309,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeSpawnRate: {fileID: 1255284906}
+  upgradeSpawnRateButton: {fileID: 928338843}
   level: 1
-  price: 1
+  price: 2
   _spawnEnergy: {fileID: 1926395754}
 --- !u!114 &255922961
 MonoBehaviour:
@@ -865,6 +867,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &928338843 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 696758427, guid: 24c3fbb31161bebb892166431e57e5e4,
+    type: 3}
+  m_PrefabInstance: {fileID: 492747799655397977}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1313,6 +1321,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 85154862739778862, guid: e014661c2f01f5080b327117f433a8db,
     type: 3}
   m_PrefabInstance: {fileID: 2868156312163992484}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1521039937 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1362339950, guid: 24c3fbb31161bebb892166431e57e5e4,
+    type: 3}
+  m_PrefabInstance: {fileID: 492747799655397977}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1568891864 stripped
 MonoBehaviour:
