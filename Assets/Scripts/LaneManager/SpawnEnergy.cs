@@ -64,7 +64,7 @@ public class SpawnEnergy : MonoBehaviour
         energySpawnRate.onUpgrade += UpgradeEnergySpawnRate;
     }
 
-    private void UpgradeEnergyValue()
+    private void UpgradeEnergyValue(float energyValue)
     {
         
     }

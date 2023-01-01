@@ -11,12 +11,16 @@ public class EnergyValue : MonoBehaviour, IUpgrade
     [SerializeField] private GameObject upgradeEnergyValueButton;
     [SerializeField] private int level = 1;
     [SerializeField] private float price = 1f;
+    private float energyValue = 1;
+    
+    
+    
 
     private Purchasing purchasing;
     private CurrencyManager currencyManager;
     
-    public event Action onUpgrade;
-    
+    public event Action<float> onUpgrade;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,13 +40,13 @@ public class EnergyValue : MonoBehaviour, IUpgrade
 
     private void OnPurchase()
     {
-        //TODO: Purposely commented out the below as need to implement this feature
-        // level += 1;
-        // price += (price * 0.1f);
+        level += 1;
+        price += (price * 0.1f);
+        energyValue += (energyValue * 0.1f);
         currencyManager.DeductMoneyByPrice(price);
         upgradeEnergyValue.transform.Find("Level").GetComponent<TMP_Text>().text = level.ToString();
         upgradeEnergyValue.transform.Find("Price").GetComponent<TMP_Text>().text = price.ToString();
-        onUpgrade?.Invoke();
+        onUpgrade?.Invoke(energyValue);
     }
     
     private void ResetValues()

@@ -235,7 +235,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: 1
   moneypsec: 1
-  energypsec: 1
   totalEnergyPerSec: 0
   moneyText: {fileID: 492747799655397978}
   moneyPSecText: {fileID: 1568891864}
@@ -277,7 +276,7 @@ MonoBehaviour:
   upgradeEnergyValue: {fileID: 1160042939}
   upgradeEnergyValueButton: {fileID: 1521039937}
   level: 1
-  price: 2
+  price: 1
 --- !u!114 &255922959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,7 +291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unlockLane: {fileID: 1861363735}
   level: 1
-  price: 2
+  price: 1
   lanes: {fileID: 1624627262}
   unlockLaneButton: {fileID: 1997624474}
   priceLabel: {fileID: 1982521350}
@@ -311,7 +310,7 @@ MonoBehaviour:
   upgradeSpawnRate: {fileID: 1255284906}
   upgradeSpawnRateButton: {fileID: 928338843}
   level: 1
-  price: 2
+  price: 1
   _spawnEnergy: {fileID: 1926395754}
 --- !u!114 &255922961
 MonoBehaviour:
@@ -341,8 +340,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823a84f1fffed20dda7b09efdfbf1358, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  price: 2
+  price: 12
   unlockChakra: {fileID: 1332612386}
+  unlockChakraButton: {fileID: 423707663}
   chakraLock: {fileID: 1469247145}
   portal: {fileID: 290440939}
 --- !u!1 &290440939 stripped
@@ -508,6 +508,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6414795268627156668, guid: e177b59ba927dea33b44f34c1841557e,
     type: 3}
   m_PrefabInstance: {fileID: 354909735}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &423707663 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 513026872, guid: 24c3fbb31161bebb892166431e57e5e4,
+    type: 3}
+  m_PrefabInstance: {fileID: 492747799655397977}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &442354123 stripped
 MonoBehaviour:

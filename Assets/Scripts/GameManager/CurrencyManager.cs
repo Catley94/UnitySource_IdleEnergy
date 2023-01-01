@@ -18,9 +18,9 @@ public class CurrencyManager : MonoBehaviour
     [SerializeField] private GameObject tower;
 
     [SerializeField] private GameObject towers;
-
+    
     [SerializeField] private GameObject chakra;
-
+    //All Lane Managers Reference, using to listen for Energy Update on each lane
     [SerializeField] private SpawnEnergy laneManager0;
     [SerializeField] private SpawnEnergy laneManager1;
     [SerializeField] private SpawnEnergy laneManager2;
@@ -29,12 +29,22 @@ public class CurrencyManager : MonoBehaviour
     [SerializeField] private SpawnEnergy laneManager5;
     [SerializeField] private SpawnEnergy laneManager6;
 
+    private EnergyValue energyValue;
+    private float energyAbsorbtionValue = 1f;
+    private EnergySpawnRate energySpawnRate;
+    private UnlockLane unlockLane;
+    private UnlockChakra unlockChakra;
+    
     //Send money update as Event so we can check if the player can purchase upgrades
     //Buttons will enable by themselves if money > price of each upgrade
     public event Action<double> onMoneyUpdate;
 
     private void OnEnable()
     {
+        energyValue = GameObject.Find("GameManager").GetComponent<EnergyValue>();
+        energySpawnRate = GameObject.Find("GameManager").GetComponent<EnergySpawnRate>();
+        unlockLane = GameObject.Find("GameManager").GetComponent<UnlockLane>();
+        unlockChakra = GameObject.Find("GameManager").GetComponent<UnlockChakra>();
         SubToEvents();
         InvokeRepeating(nameof(UpdateMoneyCount), 0f, 1f);
     }
@@ -48,6 +58,35 @@ public class CurrencyManager : MonoBehaviour
         laneManager4.onUpdateEnergyPerSec += UpdateEnergyPSec; //TODO: Need to unsub when destroyed or onDisable
         laneManager5.onUpdateEnergyPerSec += UpdateEnergyPSec; //TODO: Need to unsub when destroyed or onDisable
         laneManager6.onUpdateEnergyPerSec += UpdateEnergyPSec; //TODO: Need to unsub when destroyed or onDisable
+        energyValue.onUpgrade += UpgradeEnergyValue;
+        energySpawnRate.onUpgrade += UpgradeEnergySpawnRate;
+        unlockLane.onUpgrade += UpgradeUnlockLane;
+        unlockChakra.onUpgrade += UpgradeUnlockChakra;
+    }
+
+    private void UpgradeEnergyValue(float _energyValue)
+    {
+        energyAbsorbtionValue = _energyValue;
+        CalcMoneyPerSec();
+        onMoneyUpdate?.Invoke(money);
+    }
+
+    private void UpgradeEnergySpawnRate()
+    {
+        CalcMoneyPerSec();
+        onMoneyUpdate?.Invoke(money);
+    }
+    
+    private void UpgradeUnlockLane()
+    {
+        CalcMoneyPerSec();
+        onMoneyUpdate?.Invoke(money);
+    }
+    
+    private void UpgradeUnlockChakra()
+    {
+        CalcMoneyPerSec();
+        onMoneyUpdate?.Invoke(money);
     }
 
     public void UpdateEnergyPSec(double _energyPerSec)
@@ -83,8 +122,9 @@ public class CurrencyManager : MonoBehaviour
         double timeForChakraAbsorbtion = chakra.GetComponent<ChakraHealth>().GetHealth() / energyPerMinute;
         double totalMinsForRound = timeForTowersDestroyed + timeForChakraAbsorbtion;
         double totalSecsForRound = timeForTowersDestroyed + timeForChakraAbsorbtion * 60;
+        
         //When at chakra, 1<Energy Value&&EnergySpawnRate> / totalSecsForRound
-        double moneyPerSec = 1 / totalSecsForRound;
+        double moneyPerSec = (energyAbsorbtionValue * totalEnergyPerSec) / totalSecsForRound;
         moneypsec = moneyPerSec;
         moneyPSecText.text = moneyPerSec.ToString("F2");
         

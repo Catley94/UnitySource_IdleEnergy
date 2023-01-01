@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UnlockChakra : MonoBehaviour, IUpgrade
 {
@@ -11,6 +13,7 @@ public class UnlockChakra : MonoBehaviour, IUpgrade
     //For Referencing
     
     [SerializeField] private GameObject unlockChakra;
+    [SerializeField] private GameObject unlockChakraButton;
     //For Enabling and Disabling
     [SerializeField] private GameObject chakraLock;
     //For Enabling and Disabling
@@ -18,6 +21,8 @@ public class UnlockChakra : MonoBehaviour, IUpgrade
 
     private Purchasing purchasing;
     private CurrencyManager currencyManager;
+    
+    public event Action onUpgrade;
     
     // Start is called before the first frame update
     void Start()
@@ -31,6 +36,7 @@ public class UnlockChakra : MonoBehaviour, IUpgrade
     private void SubToEvents()
     {
         purchasing.onChakraUnlock += OnPurchase;
+        currencyManager.onMoneyUpdate += OnMoneyUpdate;
     }
 
     private void OnPurchase()
@@ -41,8 +47,24 @@ public class UnlockChakra : MonoBehaviour, IUpgrade
             chakraLock.SetActive(false);
             portal.SetActive(false);
             unlockChakra.SetActive(false);
+            onUpgrade?.Invoke(); 
         }
     }
+    
+    private void OnMoneyUpdate(double money)
+    {
+        if (currencyManager.CanPurchase(price))
+        {
+            //TODO: Enable Unlock Lane button (if disabled)
+            unlockChakraButton.GetComponent<Button>().interactable = true;
+        }
+        else
+        {
+            //TODO: Disable button (if enabled)
+            unlockChakraButton.GetComponent<Button>().interactable = false;
+        }
+    }
+
 
     private void ResetValues()
     {
