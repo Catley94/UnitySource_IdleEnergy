@@ -7,6 +7,7 @@ public class SpawnTowers : MonoBehaviour
 {
     [SerializeField] private GameObject towers;
     [SerializeField] private GameObject tower;
+    [SerializeField] private SOTower towerConfig;
     
     private IObjectPool<GameObject> towerPool; //TODO: Make this specific to Energy
     private void Awake()
@@ -36,6 +37,7 @@ public class SpawnTowers : MonoBehaviour
         foreach (Transform _towerPosition in towers.transform)
         {
             GameObject _tower = towerPool.Get();
+            _tower.GetComponent<TowerHealth>().SetTowerConfig(towerConfig);
             _tower.transform.position = _towerPosition.position;
             _tower.transform.SetParent(_towerPosition);
         }

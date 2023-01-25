@@ -340,11 +340,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823a84f1fffed20dda7b09efdfbf1358, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  price: 12
+  price: 1
   unlockChakra: {fileID: 1332612386}
   unlockChakraButton: {fileID: 423707663}
   chakraLock: {fileID: 1469247145}
   portal: {fileID: 290440939}
+--- !u!114 &255922965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255922952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd84611da5eb4a0cbe74b6265c2d51d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  round: 1
+  chakraRound: 1
+--- !u!114 &255922966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255922952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1c2d83a71591e3389f3143ff7c9e35d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &290440939 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2868156312312215519, guid: e014661c2f01f5080b327117f433a8db,
@@ -1591,6 +1617,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 492747799655397977}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2007899896 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2007899896, guid: 24c3fbb31161bebb892166431e57e5e4,
+    type: 3}
+  m_PrefabInstance: {fileID: 492747799655397977}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2044535434 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5750190117110454082, guid: e177b59ba927dea33b44f34c1841557e,
@@ -1773,6 +1811,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1624627263}
     m_Modifications:
+    - target: {fileID: 300997646192814561, guid: e014661c2f01f5080b327117f433a8db,
+        type: 3}
+      propertyPath: towerConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: 095cf52681459f0c4966494b577b7ca7,
+        type: 2}
+    - target: {fileID: 2351760068482293881, guid: e014661c2f01f5080b327117f433a8db,
+        type: 3}
+      propertyPath: lifeText
+      value: 
+      objectReference: {fileID: 2007899896}
     - target: {fileID: 2868156311274457835, guid: e014661c2f01f5080b327117f433a8db,
         type: 3}
       propertyPath: m_Name

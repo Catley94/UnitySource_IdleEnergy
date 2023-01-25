@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ChakraHealth : MonoBehaviour
@@ -7,16 +9,36 @@ public class ChakraHealth : MonoBehaviour
     [SerializeField] private int health = -1;
 
     [SerializeField] private GameObject towers;
+
+    [SerializeField] private TMP_Text lifeText;
+    
     // Start is called before the first frame update
     void Start()
     {
         SetHealth();
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    private void DecreaseHealth()
     {
-        
+        health -= 1;
+        lifeText.text = health.ToString();
+        if (health == 0)
+        {
+            GameObject.Find("GameManager").GetComponent<RoundManager>().NextRound();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Energy"))
+        {
+            DecreaseHealth();
+        }
+    }
+
+    private void ResetChakraHealth()
+    {
+        SetHealth();
     }
 
     private void SetHealth()
@@ -34,6 +56,7 @@ public class ChakraHealth : MonoBehaviour
             {
                 health = 0;
             }
+            lifeText.text = health.ToString();
         }
 
     }

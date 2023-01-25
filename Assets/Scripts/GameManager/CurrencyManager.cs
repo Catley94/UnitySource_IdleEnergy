@@ -112,9 +112,18 @@ public class CurrencyManager : MonoBehaviour
         onMoneyUpdate?.Invoke(money);
     }
     
-    private void CalcMoneyPerSec()
+    private void CalcMoneyPerSec() 
     {
-        tower = towers.transform.GetChild(0).GetChild(0).gameObject; //if there are no towers?
+        /*
+         TODO: Instead of Calculating Money Per Second, just add on to money when Energy Collides with Towers and -
+            -other objects, won't be easily about to work out money p/sec but could hide that as they will still
+            see money increase per energy. 
+        */
+        
+        if (tower == null)
+        {
+            tower = towers.transform.GetChild(0).GetChild(0).gameObject; //if there are no towers?
+        }
         double energyPerMinute = totalEnergyPerSec * 60; //Todo: Need to swap mainLaneEnergyPSec to energypsec
         double timePerTower =  tower.GetComponent<TowerHealth>().GetHealth() / energyPerMinute;
         int towerCount = towers.transform.childCount;
@@ -129,7 +138,7 @@ public class CurrencyManager : MonoBehaviour
         moneyPSecText.text = moneyPerSec.ToString("F2");
         
     }
-
+    
     #endregion
 
     #region MoneyManagement

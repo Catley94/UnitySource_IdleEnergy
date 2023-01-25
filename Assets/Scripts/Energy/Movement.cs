@@ -33,15 +33,12 @@ public class Movement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Chakra"))
         {
-            Debug.Log("Energy absorbed");
             ReturnToPool();
         } else if (other.gameObject.CompareTag("Portal"))
         {
-            Debug.Log("Energy absorbed");
             ReturnToPool();
         } else if (other.gameObject.CompareTag("Tower"))
         {
-            Debug.Log("Energy Destroyed");
             other.gameObject.GetComponent<TowerHealth>().TakeDamage();
             ReturnToPool();
         }
@@ -49,7 +46,6 @@ public class Movement : MonoBehaviour
     
     private void ReturnToPool()
     {
-        Debug.Log("Returned to Pool");
         energyPool.Release(this.gameObject);
     }
 
