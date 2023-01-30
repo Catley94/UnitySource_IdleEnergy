@@ -1,0 +1,4 @@
+repository "IdleEnergy@SAORG@cloud"
+  path "/"
+    br "/main"
+    co "/main"

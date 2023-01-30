@@ -34,10 +34,15 @@ public class RoundManager : MonoBehaviour
 	    GameObject.Find("GameManager").GetComponent<Scenes>().LoadSceneByName("InGame");
     }
 
-    private int GetRoundNumber()
+    public int GetRoundNumber()
 	{
 		return round;
 	}
+
+    public int GetChakraRoundNumber()
+    {
+	    return chakraRound;
+    }
 
     private void ResetRound()
     {

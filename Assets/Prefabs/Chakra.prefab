@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2802148392825984288}
   - component: {fileID: 2802148392825984289}
   - component: {fileID: 2417771883177083456}
+  - component: {fileID: 6496320264486200948}
   m_Layer: 0
   m_Name: Chakra
   m_TagString: Chakra
@@ -125,5 +126,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc9b515ec9fa1c52e8ae1687865cd04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: -1
+  towers: {fileID: 0}
+  lifeText: {fileID: 0}
+--- !u!114 &6496320264486200948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2802148392825984294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf7718213be9595b78a31c139908e608, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
