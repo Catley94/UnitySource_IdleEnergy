@@ -9,6 +9,9 @@ TagManager:
   - Projectile
   - Energy
   - Portal
+  - MoneyText
+  - EnergyText
+  - Towers
   layers:
   - Default
   - TransparentFX

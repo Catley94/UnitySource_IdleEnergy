@@ -54,7 +54,7 @@ public class CurrencyManager : MonoBehaviour
 
     private void Awake()
     {
-        // moneyText = GameObject.FindGameObjectsWithTag();
+        moneyText = GameObject.FindGameObjectWithTag("MoneyText").GetComponent<TMP_Text>();
         // energyPSecText
         // towers
         // chakra
