@@ -36,7 +36,7 @@ public class UnlockChakra : MonoBehaviour, IUpgrade
     private void SubToEvents()
     {
         purchasing.onChakraUnlock += OnPurchase;
-        currencyManager.onMoneyUpdate += OnMoneyUpdate;
+        // currencyManager.onMoneyUpdate += OnMoneyUpdate;
     }
 
     private void OnPurchase()
@@ -51,7 +51,21 @@ public class UnlockChakra : MonoBehaviour, IUpgrade
         }
     }
     
-    private void OnMoneyUpdate(double money)
+    // private void OnMoneyUpdate(double money)
+    // {
+    //     if (currencyManager.CanPurchase(price))
+    //     {
+    //         //TODO: Enable Unlock Lane button (if disabled)
+    //         unlockChakraButton.GetComponent<Button>().interactable = true;
+    //     }
+    //     else
+    //     {
+    //         //TODO: Disable button (if enabled)
+    //         unlockChakraButton.GetComponent<Button>().interactable = false;
+    //     }
+    // }
+
+    private void Update()
     {
         if (currencyManager.CanPurchase(price))
         {
@@ -64,7 +78,6 @@ public class UnlockChakra : MonoBehaviour, IUpgrade
             unlockChakraButton.GetComponent<Button>().interactable = false;
         }
     }
-
 
     private void ResetValues()
     {

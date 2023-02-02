@@ -1,0 +1,193 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8191513221689599536
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8191513221689599538}
+  - component: {fileID: 8191513220888504411}
+  - component: {fileID: 8191513220888504413}
+  - component: {fileID: 8191513220888504412}
+  - component: {fileID: 8191513220888504414}
+  - component: {fileID: 8191513220888504385}
+  - component: {fileID: 8191513220888504384}
+  - component: {fileID: 8191513220888504386}
+  - component: {fileID: 8191513220888504388}
+  - component: {fileID: 8191513220888504391}
+  m_Layer: 0
+  m_Name: GameManager 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8191513221689599538
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8191513221689599536}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8191513220888504411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8191513221689599536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5a8e6f9b0377c699f32d973ab307e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  money: 1
+  totalEnergyPerSec: 0
+  moneyText: {fileID: 0}
+  energyPSecText: {fileID: 0}
+  tower: {fileID: 0}
+  towers: {fileID: 0}
+  chakra: {fileID: 0}
+  laneManager0: {fileID: 0}
+  laneManager1: {fileID: 0}
+  laneManager2: {fileID: 0}
+  laneManager3: {fileID: 0}
+  laneManager4: {fileID: 0}
+  laneManager5: {fileID: 0}
+  laneManager6: {fileID: 0}
+  energyValueWorth: 2
+--- !u!114 &8191513220888504413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8191513221689599536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d36f4ad1b35383949b1ed1efe526c3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8191513220888504412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8191513221689599536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6776675adb49137b8a97f1d98d912874, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeEnergyValue: {fileID: 0}
+  upgradeEnergyValueButton: {fileID: 0}
+  level: 1
+  price: 1
+--- !u!114 &8191513220888504414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8191513221689599536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 817744cd6701e9e0c8eaf6c1d6d5643c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unlockLane: {fileID: 0}
+  level: 1
+  price: 1
+  lanes: {fileID: 0}
+  unlockLaneButton: {fileID: 0}
+  priceLabel: {fileID: 0}
+--- !u!114 &8191513220888504385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8191513221689599536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1a4a0534de0990a5ba5ba993268efda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeSpawnRate: {fileID: 0}
+  upgradeSpawnRateButton: {fileID: 0}
+  level: 1
+  price: 1
+  _spawnEnergy: {fileID: 0}
+  rate: 1
+  time: 1
+--- !u!114 &8191513220888504384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8191513221689599536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d17630a71a32dbf1faba59ee5bdac11d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuButton: {fileID: 0}
+  menuButtonText: {fileID: 0}
+  menu: {fileID: 0}
+  menuOpen: 0
+--- !u!114 &8191513220888504386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8191513221689599536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 823a84f1fffed20dda7b09efdfbf1358, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  price: 1
+  unlockChakra: {fileID: 0}
+  unlockChakraButton: {fileID: 0}
+  chakraLock: {fileID: 0}
+  portal: {fileID: 0}
+--- !u!114 &8191513220888504388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8191513221689599536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd84611da5eb4a0cbe74b6265c2d51d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  round: 1
+  chakraRound: 1
+--- !u!114 &8191513220888504391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8191513221689599536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1c2d83a71591e3389f3143ff7c9e35d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -20,7 +20,7 @@ public class SpawnEnergy : MonoBehaviour
     //Energy Per Second for this Lane
 	[SerializeField] private double energypsec;
     //Reference of Chakra, different for each Lane
-    [SerializeField] private ChakraHealth chakra;
+    [SerializeField] private GameObject chakra;
 
     //For referencing
     private GameObject gameManager;
@@ -35,7 +35,7 @@ public class SpawnEnergy : MonoBehaviour
     //Value of 1 second
     private float second = 1f;
     //Current Spawn Time for this Lane
-    private float spawnTime = 1f;
+    private double spawnTime = 1f;
     //Coroutine depends on this to be true in order to spawn in Energies per second
     //If false, should act like pausing the game
     private bool playing = true;
@@ -86,6 +86,7 @@ public class SpawnEnergy : MonoBehaviour
     {
         StartCoroutine(SpawnEnergies()); //Starts the loop of spawning X amount of Energy per second
         SetSpawnTime(spawnTime);
+        //TODO: Instead of SetSpawnTime as above, look for existing SpawnEnergy and "Get" settings to "Set" them here.
     }
 
     private IEnumerator SpawnEnergies()
@@ -93,7 +94,7 @@ public class SpawnEnergy : MonoBehaviour
         while (playing)
         {
             SpawnFromPool(soEnergyBasic);
-            yield return new WaitForSeconds(spawnTime);
+            yield return new WaitForSeconds((float)spawnTime);
         }
     }
 
@@ -110,7 +111,7 @@ public class SpawnEnergy : MonoBehaviour
         _energy.transform.position = startPosition.transform.position;
         _energy.transform.rotation = startPosition.transform.rotation;
         _energy.GetComponent<Movement>().SetEnergyPool(energyPool);
-        _energy.GetComponent<Movement>().SetTarget(chakra.gameObject);
+        _energy.GetComponent<Movement>().SetTarget(chakra);
     }
     
     private void OnReleaseEnergy(GameObject _energy)
@@ -132,12 +133,12 @@ public class SpawnEnergy : MonoBehaviour
         return energypsec;
     }
 
-    public float GetSpawnTime()
+    public double GetSpawnTime()
     {
         return spawnTime;
     }
 
-    public void SetSpawnTime(float _spawnTime)
+    public void SetSpawnTime(double _spawnTime)
     {
         spawnTime = _spawnTime;
         UpdateEnergyPerSec();

@@ -35,7 +35,7 @@ public class EnergyValue : MonoBehaviour, IUpgrade
     private void SubToEvents()
     {
         purchasing.onEnergyValueUpgrade += OnPurchase;
-        currencyManager.onMoneyUpdate += OnMoneyUpdate;
+        // currencyManager.onMoneyUpdate += OnMoneyUpdate;
     }
 
     private void OnPurchase()
@@ -57,7 +57,21 @@ public class EnergyValue : MonoBehaviour, IUpgrade
         upgradeEnergyValue.transform.Find("Price").GetComponent<TMP_Text>().text = price.ToString();
     }
     
-    private void OnMoneyUpdate(double money)
+    // private void OnMoneyUpdate(double money)
+    // {
+    //     if (currencyManager.CanPurchase(price))
+    //     {
+    //         //TODO: Enable Unlock Lane button (if disabled)
+    //         upgradeEnergyValueButton.GetComponent<Button>().interactable = true;
+    //     }
+    //     else
+    //     {
+    //         //TODO: Disable button (if enabled)
+    //         upgradeEnergyValueButton.GetComponent<Button>().interactable = false;
+    //     }
+    // }
+
+    private void Update()
     {
         if (currencyManager.CanPurchase(price))
         {

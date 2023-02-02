@@ -31,10 +31,24 @@ public class UnlockLane : MonoBehaviour, IUpgrade
     private void SubToEvents()
     {
         purchasing.onLaneUnlock += OnPurchase;
-        currencyManager.onMoneyUpdate += OnMoneyUpdate;
+        // currencyManager.onMoneyUpdate += OnMoneyUpdate;
     }
 
-    private void OnMoneyUpdate(double money)
+    // private void OnMoneyUpdate(double money)
+    // {
+    //     if (currencyManager.CanPurchase(price))
+    //     {
+    //         //TODO: Enable Unlock Lane button (if disabled)
+    //         unlockLaneButton.GetComponent<Button>().interactable = true;
+    //     }
+    //     else
+    //     {
+    //         //TODO: Disable button (if enabled)
+    //         unlockLaneButton.GetComponent<Button>().interactable = false;
+    //     }
+    // }
+
+    private void Update()
     {
         if (currencyManager.CanPurchase(price))
         {

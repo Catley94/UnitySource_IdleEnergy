@@ -1,4 +1,4 @@
 repository "IdleEnergy@SAORG@cloud"
   path "/"
-    br "/main"
-    co "/main"
+    smartbranch "/main/Remove_Calcultion" 
+     
