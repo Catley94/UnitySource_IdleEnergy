@@ -36,6 +36,7 @@ public class CurrencyManager : MonoBehaviour
     private UnlockLane unlockLane;
     private UnlockChakra unlockChakra;
     
+    
     //New System
     [SerializeField] private float energyValueWorth = 0.01f;
     
