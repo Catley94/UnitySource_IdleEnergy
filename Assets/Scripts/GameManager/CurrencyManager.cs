@@ -18,9 +18,9 @@ public class CurrencyManager : MonoBehaviour
 
     [SerializeField] private GameObject tower; //TODO: Am I using this anymore?
 
-    [SerializeField] private GameObject towers;
+    // [SerializeField] private GameObject towers;
+    // [SerializeField] private GameObject chakra;
     
-    [SerializeField] private GameObject chakra;
     //All Lane Managers Reference, using to listen for Energy Update on each lane
     [SerializeField] private SpawnEnergy laneManager0;
     [SerializeField] private SpawnEnergy laneManager1;
@@ -43,31 +43,32 @@ public class CurrencyManager : MonoBehaviour
     //Send money update as Event so we can check if the player can purchase upgrades
     //Buttons will enable by themselves if money > price of each upgrade
     public event Action<double> onMoneyUpdate;
+
+    private RoundManager roundManager;
     
     private void OnEnable()
     {
+        SetupReferences();
+        SubToEvents();
+    }
+    
+    private void SetupReferences()
+    {
+        moneyText = GameObject.FindGameObjectWithTag("MoneyText").GetComponent<TMP_Text>();
+        energyPSecText = GameObject.FindGameObjectWithTag("EnergyText").GetComponent<TMP_Text>();
+        laneManager0 = GameObject.FindGameObjectWithTag("LaneManager0").GetComponent<SpawnEnergy>();
+        laneManager1 = GameObject.FindGameObjectWithTag("LaneManager1").GetComponent<SpawnEnergy>();
+        laneManager2 = GameObject.FindGameObjectWithTag("LaneManager2").GetComponent<SpawnEnergy>();
+        laneManager3 = GameObject.FindGameObjectWithTag("LaneManager3").GetComponent<SpawnEnergy>();
+        laneManager4 = GameObject.FindGameObjectWithTag("LaneManager4").GetComponent<SpawnEnergy>();
+        laneManager5 = GameObject.FindGameObjectWithTag("LaneManager5").GetComponent<SpawnEnergy>();
+        laneManager6 = GameObject.FindGameObjectWithTag("LaneManager6").GetComponent<SpawnEnergy>();
+        energyValueWorth = 2;
         energyValue = GameObject.Find("GameManager").GetComponent<EnergyValue>();
         energySpawnRate = GameObject.Find("GameManager").GetComponent<EnergySpawnRate>();
         unlockLane = GameObject.Find("GameManager").GetComponent<UnlockLane>();
         unlockChakra = GameObject.Find("GameManager").GetComponent<UnlockChakra>();
-        SubToEvents();
-    }
-
-    private void Awake()
-    {
-        moneyText = GameObject.FindGameObjectWithTag("MoneyText").GetComponent<TMP_Text>();
-        // energyPSecText
-        // towers
-        // chakra
-        // laneManager0
-        // laneManager1
-        // laneManager2
-        // laneManager3
-        // laneManager4
-        // laneManager5
-        // laneManager6
-        // energyWorthValue = 2;
-
+        roundManager = GameObject.Find("GameManager").GetComponent<RoundManager>();
     }
 
     private void Start()
@@ -88,6 +89,7 @@ public class CurrencyManager : MonoBehaviour
         energySpawnRate.onUpgrade += UpgradeEnergySpawnRate;
         unlockLane.onUpgrade += UpgradeUnlockLane;
         unlockChakra.onUpgrade += UpgradeUnlockChakra;
+        roundManager.onRoundReload += SetupReferences;
     }
 
     private void UpgradeEnergyValue(float _energyValue)

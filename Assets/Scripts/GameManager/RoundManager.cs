@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -7,8 +8,10 @@ public class RoundManager : MonoBehaviour
 {
 	[SerializeField] private int round = 1;
 	[SerializeField] private int chakraRound = 1;
+	
+	public event Action onRoundReload;
 
-    // Start is called before the first frame update
+	// Start is called before the first frame update
     void Start()
     {
         
@@ -22,16 +25,25 @@ public class RoundManager : MonoBehaviour
 
     public void NextRound()
     {
-	    if (round == 7)
+	    bool triggerNextChakraRound = round == 7;
+	    bool stayingOnCurrentChakra = round < 7;
+	    if (triggerNextChakraRound)
 	    {
 		    IncreaseChakraRound();
 		    ResetRound();
+		    
 	    }
-	    else if(round < 7)
+	    else if(stayingOnCurrentChakra)
 	    {
 		    IncreaseRound();
 	    }
-	    GameObject.Find("GameManager").GetComponent<Scenes>().LoadSceneByName("InGame");
+	    
+	    ReloadRound();
+    }
+
+    private void ReloadRound()
+    {
+	    onRoundReload?.Invoke();
     }
 
     public int GetRoundNumber()

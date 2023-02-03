@@ -11,10 +11,14 @@ public class ChakraHealth : MonoBehaviour
     [SerializeField] private GameObject towers;
 
     [SerializeField] private TMP_Text lifeText;
+
+    private RoundManager roundManager;
     
     // Start is called before the first frame update
     void Start()
     {
+        roundManager = GameObject.Find("GameManager").GetComponent<RoundManager>();
+        roundManager.onRoundReload += ResetChakraHealth;
         SetHealth();
     }
     
@@ -24,8 +28,13 @@ public class ChakraHealth : MonoBehaviour
         lifeText.text = health.ToString();
         if (health == 0)
         {
-            GameObject.Find("GameManager").GetComponent<RoundManager>().NextRound();
+            TriggerNextRound();
         }
+    }
+
+    private void TriggerNextRound()
+    {
+        GameObject.Find("GameManager").GetComponent<RoundManager>().NextRound();
     }
 
     private void OnTriggerEnter(Collider other)

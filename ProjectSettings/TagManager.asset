@@ -12,6 +12,13 @@ TagManager:
   - MoneyText
   - EnergyText
   - Towers
+  - LaneManager0
+  - LaneManager1
+  - LaneManager2
+  - LaneManager3
+  - LaneManager4
+  - LaneManager5
+  - LaneManager6
   layers:
   - Default
   - TransparentFX

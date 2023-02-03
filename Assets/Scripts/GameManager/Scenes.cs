@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class Scenes : MonoBehaviour
 {
+    private RoundManager roundManager;
     // Start is called before the first frame update
     void Start()
     {
-        
+        roundManager = GameObject.Find("GameManager").GetComponent<RoundManager>();
+        roundManager.onRoundReload += () => LoadSceneByName("InGame");
     }
 
     // Update is called once per frame
