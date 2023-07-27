@@ -868,7 +868,7 @@ GameObject:
   - component: {fileID: 192142162}
   - component: {fileID: 192142161}
   m_Layer: 5
-  m_Name: TowerSize
+  m_Name: BlockSize
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -938,7 +938,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 192142162}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 254096462}
+        m_TargetAssemblyTypeName: Upgrades, Assembly-CSharp
+        m_MethodName: IncreaseBlockSize
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &192142162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1511,7 +1523,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 432009350}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 254096462}
+        m_TargetAssemblyTypeName: Upgrades, Assembly-CSharp
+        m_MethodName: IncreaseEnergySize
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &432009350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3387,7 +3411,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1210099109}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 254096462}
+        m_TargetAssemblyTypeName: Upgrades, Assembly-CSharp
+        m_MethodName: IncreaseTappingPower
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1210099109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3613,7 +3649,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1321862731
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5386,7 +5422,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3760899476654179644, guid: 3b7a93ff73b3abe5f9405db5ffb36e21, type: 3}
       propertyPath: EmissionModule.enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3760899476654179644, guid: 3b7a93ff73b3abe5f9405db5ffb36e21, type: 3}
       propertyPath: InitialModule.startSize.scalar

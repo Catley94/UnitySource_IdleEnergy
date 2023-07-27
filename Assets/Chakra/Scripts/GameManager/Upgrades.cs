@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class Upgrades : MonoBehaviour
 {
+
     
     [SerializeField] private ParticleSystem rootEnergy; 
     
-    [SerializeField] private float energySpawnRate = 1;
-    [SerializeField] private int energySize = 2;
-    [SerializeField] private int blockSize = 2;
-    [SerializeField] private int tappingPower = 1;
+    [SerializeField] private float energySpawnRate = 1f;
+    [SerializeField] private float energySize = 2f;
+    [SerializeField] private float blockSize = 2f;
+    [SerializeField] private float tappingPower = 1f;
+    
+    private GameObject blocksContainer;
     
     //TODO: ONLY WORKS WITH ROOT ENERGY CURRENTLY, BUT NEEDS TO WORK WITH 'CURRENT' ACTIVE ENERGY.
     //EXAMPLE: IF ON SACRAL LEVEL, LEVEL UP SACRAL ENERGY ONLY, DEPENDANT ON ROUND NUMBER
@@ -18,7 +21,7 @@ public class Upgrades : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        blocksContainer = GameObject.FindWithTag("Blocks");
     }
 
     // Update is called once per frame
@@ -36,12 +39,22 @@ public class Upgrades : MonoBehaviour
 
     public void IncreaseEnergySize()
     {
-        
+        energySize += 1f;
+        ParticleSystem.MainModule main = rootEnergy.main;
+        main.startSize = energySize;
     }
 
     public void IncreaseBlockSize()
     {
-        
+        blockSize += 0.1f;
+        Transform[] chakraBlockContainers = blocksContainer.transform.GetChild(0).GetComponentsInChildren<Transform>();
+        foreach (Transform chakraBlockContainer in chakraBlockContainers)
+        {
+            foreach (Transform block in chakraBlockContainer)
+            {
+                block.localScale = new Vector3(blockSize, blockSize, blockSize);
+            }
+        }
     }
 
     public void IncreaseTappingPower()
