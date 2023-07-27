@@ -1131,6 +1131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 254096461}
   - component: {fileID: 254096460}
+  - component: {fileID: 254096462}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1166,6 +1167,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &254096462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254096459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed28fc7b724771dffaf4ca207e3c462b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rootEnergy: {fileID: 1844624903}
+  energySpawnRate: 1
+  energySize: 2
+  blockSize: 2
+  tappingPower: 1
 --- !u!1 &332468153
 GameObject:
   m_ObjectHideFlags: 0
@@ -5032,6 +5050,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4075975496578991288, guid: 360c7c6d1495f625ea4f0dc59fc70a8c, type: 3}
   m_PrefabInstance: {fileID: 1793830162}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &1844624903 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3760899476654179644, guid: 3b7a93ff73b3abe5f9405db5ffb36e21, type: 3}
+  m_PrefabInstance: {fileID: 4752899582796387038}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1932838268
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5185,7 +5208,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1944108660}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 254096462}
+        m_TargetAssemblyTypeName: Upgrades, Assembly-CSharp
+        m_MethodName: IncreaseEnergySpawnRate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1944108660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5350,11 +5385,19 @@ PrefabInstance:
     m_TransformParent: {fileID: 1336389096}
     m_Modifications:
     - target: {fileID: 3760899476654179644, guid: 3b7a93ff73b3abe5f9405db5ffb36e21, type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3760899476654179644, guid: 3b7a93ff73b3abe5f9405db5ffb36e21, type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3760899476654179644, guid: 3b7a93ff73b3abe5f9405db5ffb36e21, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3760899476654179644, guid: 3b7a93ff73b3abe5f9405db5ffb36e21, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4838926605800977528, guid: 3b7a93ff73b3abe5f9405db5ffb36e21, type: 3}
