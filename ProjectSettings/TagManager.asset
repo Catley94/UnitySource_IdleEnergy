@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Blocks
+  - GameManager
+  - ParticleImage1
+  - Canvas
   layers:
   - Default
   - TransparentFX
