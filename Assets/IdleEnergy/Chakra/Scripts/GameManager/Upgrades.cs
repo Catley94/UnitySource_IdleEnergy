@@ -18,6 +18,8 @@ public class Upgrades : MonoBehaviour
     [SerializeField] private float increaseBlockSizeBy = 0.1f;
     [SerializeField] private float increaseTappingPowerBy = 1f;
     
+    private SceneManager sceneManager;
+    
     private GameObject blocksContainer;
     
     //TODO: ONLY WORKS WITH ROOT ENERGY CURRENTLY, BUT NEEDS TO WORK WITH 'CURRENT' ACTIVE ENERGY.
@@ -26,6 +28,8 @@ public class Upgrades : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        sceneManager = GameObject.FindWithTag("GameManager").GetComponent<SceneManager>();
+        sceneManager.SaveBeforeLoad.AddListener(Save);
         blocksContainer = GameObject.FindWithTag("Blocks");
     }
 
@@ -60,5 +64,15 @@ public class Upgrades : MonoBehaviour
     {
         tappingPower += increaseTappingPowerBy;
         GameObject.FindWithTag("GameManager").GetComponent<TappingManager>().SetTappingPower(tappingPower);
+    }
+    
+    private void Save()
+    {
+        //TODO DO I need to save anything here? Probably as we're going on to Meridian scene
+    }
+
+    private void Load()
+    {
+        
     }
 }

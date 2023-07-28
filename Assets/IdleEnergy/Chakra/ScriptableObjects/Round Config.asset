@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27957e2edc687aac2a3464027ecf0980, type: 3}
+  m_Name: Round Config
+  m_EditorClassIdentifier: 
+  roundConfig:
+  - currentChakra: Root
+    blockCount: 4
+  - currentChakra: Sacral
+    blockCount: 5
+  - currentChakra: Solar Plexus
+    blockCount: 7
+  - currentChakra: Heart
+    blockCount: 10
+  - currentChakra: Throat
+    blockCount: 14
+  - currentChakra: Third Eye
+    blockCount: 19
+  - currentChakra: Crown
+    blockCount: 25

@@ -65,6 +65,7 @@ public class Health : MonoBehaviour
     private void OnDestroy()
     {
         currencyManager.IncreaseMoneyBy(currencyWorth);
+        GameObject.FindWithTag("Blocks").GetComponent<BlockManager>().BlockDefeated();
         //TODO: Instantiate (or pool) a new Particle Image which spawns at the location of this object in canvas.
         //This way more than one object can be destroyed at a time and the particle image will spawn at the correct location.
     }
