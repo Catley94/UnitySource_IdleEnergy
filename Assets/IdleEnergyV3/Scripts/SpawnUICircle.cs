@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Idle_Engine.API;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -30,6 +31,8 @@ public class SpawnUICircle : MonoBehaviour
 
         Vector2 randomPosition = GetRandomPositionWithinCanvasBounds(circleRectTransform);
         circleRectTransform.anchoredPosition = randomPosition;
+
+        energy.transform.GetChild(0).GetComponent<ValueAnimation>().SetValue(circleValuePerSecond);
         
         IE_IdleEngine.Instance.IncreaseCurrencyPerSecondBy(circleValuePerSecond);
 

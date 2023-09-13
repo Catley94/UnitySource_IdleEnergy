@@ -45,13 +45,18 @@ public class ValueAnimation : MonoBehaviour
         textToTween = GetComponentInChildren<TMP_Text>();
     }
     
-    public void Play()
+    private void Play()
     {
         PlayXAnimation();
         
         PlayYAnimation();
         
         PlayFadeAnimation();
+    }
+
+    public void SetValue(float value)
+    {
+        GetComponentInChildren<TMP_Text>().text = "+ " + value.ToString("F1");
     }
 
     private void PlayXAnimation()
