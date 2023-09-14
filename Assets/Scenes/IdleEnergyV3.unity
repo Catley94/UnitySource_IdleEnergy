@@ -1113,7 +1113,7 @@ GameObject:
   - component: {fileID: 1694368877}
   - component: {fileID: 1694368876}
   m_Layer: 0
-  m_Name: Utils
+  m_Name: CircleSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1334,6 +1334,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1670070103170607872, guid: f953a5a19560ebb0bb9afb23e5f527b9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1870516462370069307, guid: f953a5a19560ebb0bb9afb23e5f527b9, type: 3}
+      propertyPath: currencyPerSecond
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6665941409247767681, guid: f953a5a19560ebb0bb9afb23e5f527b9, type: 3}

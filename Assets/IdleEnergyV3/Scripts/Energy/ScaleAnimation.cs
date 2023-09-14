@@ -19,8 +19,7 @@ public class ScaleAnimation : MonoBehaviour
     {
         IE_IdleEngine.Instance.currencyTick.AddListener((currencyAmount) =>
         {
-            Debug.Log("Tick");
-            transform.DOScale(2f, animationTime).onComplete += () => transform.DOScale(1f, animationTime);
+            transform.DOScale(2f, animationTime).SetEase(Ease.InOutQuad).onComplete += () => transform.DOScale(1f, animationTime);
         });
     }
     
